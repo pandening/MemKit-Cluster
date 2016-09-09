@@ -54,7 +54,7 @@ $Flag:true
 #####2.start the memkit.
 #####3.start the cluster manager
 #####4.check the run result.
-#####if you look the result for this,you are succeed  
+#####if you look the result like this,you are succeed  
 #########memkit manager
 ![iamge](https://github.com/pandening/images/blob/master/memkitDemoRun.png)
 ########memkit 
