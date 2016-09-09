@@ -5,7 +5,7 @@ What?
 ```
 MemKit is a key-value store tool,and the Memkit is local,but this project will work on    
 cluster,the topology is star-type.the center is the manager.the edge is the memkit node.  
-if you want to let a node join into the memkit cluster,just tell the node by write the  
+if you want to let an node join into the memkit cluster,just tell the node by write the  
 configure file.there was a template configure file with the project,BUT THIS CONFIGURE  
 FILE JUST FOR TESTING THE PROJECT,YOU SHOULD ALWAYS MODIFY THE CONFIGURE FILE ACCORDING   
 TO YOUR CASE.   
