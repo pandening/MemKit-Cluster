@@ -24,7 +24,7 @@ how?
 ####There is a small demo for testing the memkit cluster. 
 +++><https://github.com/pandening/MemKit-Cluster/blob/master/MemKitClusterManager/src/net/hujian/memkit/clusterTestDemo/ClusterConsoleControlRunner.java>
 ####hot to set up the demo?
-#####1.edit the config file,the follow codes is a template config ure.
+#####1.edit the config file,the follow codes is a template configure.
 ```
 #This is the config file of this memcached,and the code start with '#' means
 #this is a comment,the program will skip these code,and you can just use the
