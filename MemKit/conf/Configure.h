@@ -20,10 +20,10 @@
 #ifndef MEMKIT_CONFIGURE_H
 #define MEMKIT_CONFIGURE_H
 
-#include "MemKitUtils.h"
+#include "../MemKitUtils/MemKitUtils.h"
 
 
-#define config_file "./config.conf" /*the config file,do not change the file name by yourself*/
+#define config_file "./conf/config.conf" /*the config file,do not change the file name by yourself*/
 #define dConfig 0
 typedef std::string String;
 
@@ -299,12 +299,80 @@ public:
             line="false";
         }
         if(dConfig){
-            std::cout<<"get the flage:"<<line<<std::endl;
+            std::cout<<"get the flag:"<<line<<std::endl;
         }
         reader.close();
         return line;
     }
-
+    /**
+     * the default is do not
+     * @return
+     */
+    String getAutoRebuildFlag(){
+        reader.open(config_file);
+        String line;
+        while(getline(reader,line)){
+            if(line[0]=='$'&&line[1]=='R'){
+                line=trim(line);
+                line=line.substr(line.find_first_of(':')+1);
+                break;
+            }
+        }
+        if(line.empty()){
+            line="false";
+        }
+        if(dConfig){
+            std::cout<<"get the auto rebuild flag:"<<line<<std::endl;
+        }
+        reader.close();
+        return line;
+    }
+    /**
+     * 1 minutes to dump..
+     * @return
+     */
+    String getAutoDumpTime(){
+        reader.open(config_file);
+        String line;
+        while(getline(reader,line)){
+            if(line[0]=='$'&&line[1]=='D'){
+                line=trim(line);
+                line=line.substr(line.find_first_of(':')+1);
+                break;
+            }
+        }
+        if(line.empty()){
+            line="60";
+        }
+        if(dConfig){
+            std::cout<<"get the dump time:"<<line<<std::endl;
+        }
+        reader.close();
+        return line;
+    }
+    /**
+     * get the log file
+     * @return
+     */
+    String getDumpFile(){
+        reader.open(config_file);
+        String line;
+        while(getline(reader,line)){
+            if(line[0]=='$'&&line[1]=='f'){
+                line=trim(line);
+                line=line.substr(line.find_first_of(':')+1);
+                break;
+            }
+        }
+        if(line.empty()){
+            line="./conf/dump.log";
+        }
+        if(dConfig){
+            std::cout<<"get the dump file:"<<line<<std::endl;
+        }
+        reader.close();
+        return line;
+    }
 };
 
 

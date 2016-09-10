@@ -16,9 +16,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "ConsoleRunner.h"
-#include "RemoteRunner.h"
-#include "RefreshMem.h"
+#include "console/ConsoleRunner.h"
+#include "remote/RemoteRunner.h"
+#include "core/RefreshMem.h"
+#include "core/MemKitAutoDumpHandler.h"
+#include "RebuildMem/RebuildMemByLogFile.h"
 
 typedef struct remote_ds{
     int file_ds;
@@ -214,19 +216,6 @@ void do_remote_job(remote_ds_t info) {
                 }
                 break;
             }
-            case 'd': {//dump
-                clear = splitVec[1];
-                if (clear == "true") {
-                    info.memKit->dump(true);
-                } else {
-                    info.memKit->dump(false);
-                }
-                response = "ok";
-                if (DEBUG) {
-                    os << "flag[" << clear << "]" << el;
-                }
-                break;
-            }
             case 'a': {
                 store_id = splitVec[1];
                 key = splitVec[2];
@@ -340,6 +329,18 @@ void run_refreshMem(long seconds){
      */
     RefreshMem* refreshMem=new RefreshMem(seconds);
 }
+/**
+ * auto dump the memkit to disk
+ */
+void run_autoDump(){
+    AutoDumpHandler* autoDumpHandler=new AutoDumpHandler;
+}
+/**
+ * re-build the mem by the file
+ */
+void run_reBuildMem(){
+    RebuildMemKit* rebuildMemKit=new RebuildMemKit;
+}
 
 /**
  * console runner
@@ -440,12 +441,30 @@ int main(int argc,char**argv) {
     os<<"\tmanager ip:"<<config->getManagerIP()<<el;
     os<<"\tmanager port:"<<config->getManagerPort()<<el;
     os<<"\tremote flag:"<<config->getFlag()<<el;
+    os<<"\trebuild flag:"<<config->getAutoRebuildFlag()<<el;
+    os<<"\tauto dump timer:"<<config->getAutoDumpTime()<<" s"<<el;
+    os<<"\tlog file:"<<config->getDumpFile()<<el;
     String cmd;
     while(true){
         os<<el<<"\tlocal/remote/exit:";
         is>>cmd;
         if(cmd!="local"&&cmd!="remote"&&cmd!="exit"){
             continue;
+        }
+        /**
+         * auto dump
+         */
+        std::thread AutoDump(run_autoDump);
+        AutoDump.detach();
+        /**
+         * re-build
+         */
+        if(config->getAutoRebuildFlag()=="true"){
+            std::thread rebuild(run_reBuildMem);
+            /**
+             * wait to back.
+             */
+            rebuild.join();
         }
         if(cmd=="local"){
             std::thread console(run_Console);

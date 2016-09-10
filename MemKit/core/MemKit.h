@@ -30,7 +30,7 @@
 #include <time.h>
 #include <fstream> /*for I/O*/
 
-#include "Configure.h"
+#include "../conf/Configure.h"
 
 typedef std::string String;
 typedef long Long;
@@ -357,22 +357,17 @@ MEMKIT_PUBLIC:
     /**
      * dump the storage to disk
      * @param clear true means you want to clear the storage after dump.
+     * @param file file to dump.
      */
-    void dump(bool clear=false/*is clear.*/){
+    void dump(String file,bool clear=false/*is clear.*/){
         if(this->storage_size==0){
             std::cout<<"nothing to dump"<<std::endl;
             return;
         }
         /**
-         * create the file name according to the time stamp
-         */
-        char buf[1024];
-        memset(buf,0, sizeof(buf));
-        sprintf(buf,"./%ld.txt",this->getMillis());
-        /**
          * open the file.
          */
-        std::ofstream writer(buf);
+        std::ofstream writer(file.c_str());
         /**
          * the flush format will like this=>
          * ---------------------------------

@@ -20,8 +20,8 @@
 #define MEMKIT_CONSOLERUNNER_H
 #include <vector> /*for vector*/
 
-#include "MemKitUtils.h"
-#include "Configure.h"
+#include "../MemKitUtils/MemKitUtils.h"
+#include "../conf/Configure.h"
 
 #define os std::cout
 #define el std::endl
@@ -49,7 +49,7 @@ private:
         os<<"\tset       [store id][key][time to live(mills)]      set ttl for store@key"<<el;
         os<<"\tttl       [store id][key]                           get the ttl of store@key"<<el;
         os<<"\tget       [store id][key]                           get the value"<<el;
-        os<<"\tdump      [true/false]                              dump to disk.(true means flush the cache)"<<el;
+        os<<"\tdump      [file][true/false]                        dump to disk.(true means flush the cache)"<<el;
         os<<"\tappend    [store id][key][append value]             append a value"<<el;
         os<<"\tput       [store id][key][value]                    put a key-value"<<el;
         os<<"\tflush     [store]                                   flush the storage"<<el;
@@ -242,6 +242,7 @@ public:
                          * action
                          */
                         this->__instance->setCapacity(atol(cap.c_str()));
+                        os<<"set capacity ok"<<el;
                         if(DEBUG){
                             os<<"new capacity["<<cap<<"]"<<el;
                         }
@@ -278,11 +279,17 @@ public:
                     break;
                 }
                 case 'd': {//dump
-                    clear = splitVec[1];
-                    if (clear == "true") {
-                        this->__instance->dump(true);
-                    } else {
-                        this->__instance->dump(false);
+                    if(splitVec.size()==3) {
+                        clear = splitVec[2];
+                        String file = splitVec[1];
+                        if (clear == "true") {
+                            this->__instance->dump(file, true);
+                        } else {
+                            this->__instance->dump(file, false);
+                        }
+                    }else if(splitVec.size()==2){
+                        String file=splitVec[1];
+                        this->__instance->dump(file);
                     }
                     os << "\tdump ok~" << el;
                     if(DEBUG){
