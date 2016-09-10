@@ -66,7 +66,8 @@ hujian:<1425124481@qq.com>
 
 update Information
 ---------------------------------
-#####1.2016/9/9 set up the project with total code 4026 lines.    
+#####1.2016/9/9      set up the project with total code 4026 lines.    
+#####2.2016/9/10     re-organize the files,and set up the auto-dump engine,you can rebuild the memkit now~ 
 
 License?
 ---------------------------------
