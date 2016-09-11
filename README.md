@@ -68,6 +68,9 @@ update Information
 ---------------------------------
 #####1.2016/9/9      set up the project with total code 4026 lines.    
 #####2.2016/9/10     re-organize the files,and set up the auto-dump engine,you can rebuild the memkit now~ 
+#####3.2016/9/11     (1). create the .sh file,you can use .sh file to run the memkit
+                     (2). more apis,such as 'ps','ss','ks',etc,you can check the consoleRunner.h file to get details 
+                     (3). new timer and thread factory,more fixable and stable. 
 
 License?
 ---------------------------------
