@@ -50,6 +50,12 @@ $manager_ip:127.0.0.1
 $Manage_Port:8888
 #10. if you want to join a cluster,just set true
 $Flag:true
+#11. if you want to set up the re-build engine
+$RBF:true
+#12. the timer to dump file for rebuilding
+$DT:60
+#13.dump file name
+$fn:./conf/dump.log
 ```
 #####2.start the memkit.
 #####3.start the cluster manager
@@ -71,6 +77,10 @@ update Information
 #####3.2016/9/11     (1). create the .sh file,you can use .sh file to run the memkit
                      (2). more apis,such as 'ps','ss','ks',etc,you can check the consoleRunner.h file to get details 
                      (3). new timer and thread factory,more fixable and stable. 
+                     (4). you get replace a key's value to another now,but you should offer the new value,not another store@value
+                     (5). you can rename a storage now,return true/false to show the result
+                     (6). you can rename a key's name,return true/false
+                     (7). add some new files,but now they are stupid.
 
 License?
 ---------------------------------
