@@ -82,6 +82,13 @@ update Information
                 (5). you can rename a storage now,return true/false to show the result
                 (6). you can rename a key's name,return true/false
                 (7). add some new files,but now they are stupid.
+4.2016/9/13
+                (1). fix the load bugs,now the load function works well.
+                (2). remove some useless codes.
+                (3). move the .sh file to bin/
+                (4). create a thread pool,but not work now.
+                (5). the memkit can get the system's memory information now,then the manage can set capacity according to this info.
+                (6). more stable and fast.
 ```
 
 License?
