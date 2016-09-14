@@ -237,4 +237,21 @@ public class API {
         return this.recv();
     }
 
+    /**
+     * get the mem info
+     * @return
+     */
+    public String mem(){
+        this.send("mem");
+        return this.recv();
+    }
+
+    /**
+     * alive check
+     * @return
+     */
+    public String alive(){
+        this.send("hh");
+        return this.recv();
+    }
 }

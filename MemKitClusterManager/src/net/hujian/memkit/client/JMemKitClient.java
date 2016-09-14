@@ -254,6 +254,105 @@ public class JMemKitClient {
     }
 
     /**
+     * puts
+     * @param ikvs
+     * @return
+     */
+    public String ps(String ikvs){
+        this.send("ps "+ikvs);
+        return this.recv();
+    }
+
+    /**
+     * get the keys list
+     * @return
+     */
+    public String ks(){
+        this.send("ks");
+        return this.recv();
+    }
+
+    /**
+     * get the store id's keys list
+     * @param store_id
+     * @return
+     */
+    public String ks(String store_id){
+        this.send("ks "+store_id);
+        return this.recv();
+    }
+
+    /**
+     * get the stores list
+     * @return
+     */
+    public String ss(){
+        this.send("ss");
+        return this.recv();
+    }
+
+    /**
+     * rename the store id
+     * @param old_id
+     * @param new_id
+     * @return
+     */
+    public String rs(String old_id,String new_id){
+        this.send("rs "+old_id+" "+new_id);
+        return this.recv();
+    }
+
+    /**
+     * rename the key
+     * @param id
+     * @param ok
+     * @param nk
+     * @return
+     */
+    public String rk(String id,String ok,String nk){
+        this.send("rk "+id+" "+ok+" "+nk);
+        return this.recv();
+    }
+
+    /**
+     * replace the value
+     * @param id
+     * @param k
+     * @param nv
+     */
+    public String re(String id,String k,String nv){
+        this.send("re "+id+" "+k+" "+nv);
+        return this.recv();
+    }
+
+    /**
+     * get an random key
+     * @return
+     */
+    public String rd(){
+        this.send("rd");
+        return this.recv();
+    }
+
+    /**
+     * get the mem info
+     * @return
+     */
+    public String mem(){
+        this.send("mem");
+        return this.recv();
+    }
+
+    /**
+     * alive check
+     * @return
+     */
+    public String alive(){
+        this.send("hh");
+        return this.recv();
+    }
+
+    /**
      * just close the connect from server
      * @return
      */

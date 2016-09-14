@@ -331,6 +331,10 @@ public class ServerApiListener{
                             response=info();
                             break;
                         }
+                        case 'm':{
+                            response=mem();
+                            break;
+                        }
                         default:{//do nothing
                             System.out.println("unknown command from client.");
                             break;
@@ -507,6 +511,26 @@ public class ServerApiListener{
     public String exist(String store_id){
         if(QueryClient!=null) {
             return QueryClient.exist(store_id);
+        }else{
+            return "fail";
+        }
+    }
+
+    /**
+     * alive check
+     * @return
+     */
+    public String alive(){
+        if(QueryClient!=null){
+            return QueryClient.alive();
+        }else{
+            return "fail";
+        }
+    }
+
+    public String mem(){
+        if(QueryClient!=null){
+            return QueryClient.mem();
         }else{
             return "fail";
         }

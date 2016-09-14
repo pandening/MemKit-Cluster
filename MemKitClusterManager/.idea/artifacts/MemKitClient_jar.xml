@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MemKitClient:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MemKitClient_jar</output-path>
+    <root id="archive" name="MemKitClient.jar">
+      <element id="module-output" name="MemKitClient" />
+    </root>
+  </artifact>
+</component>

@@ -55,7 +55,7 @@ public class ClusterConsoleControlRunner {
          * put the data
          */
         API api=new API("127.0.0.1",8889);
-        for(int i=0;i<1000;i++){
+        for(int i=0;i<100;i++){
             api.put(UUID.randomUUID().toString(),"hujian","MemKit 1.0.1");
         }
         BufferedReader input=new BufferedReader(new InputStreamReader(System.in));
@@ -64,6 +64,10 @@ public class ClusterConsoleControlRunner {
             while(true){
                 line=input.readLine();
                 switch (line.charAt(0)){
+                    case 'm':{
+                        response=api.mem();
+                        break;
+                    }
                     case 'p':{
                         response=api.put(line.split(" ")[1],line.split(" ")[2],line.split(" ")[3]);
                         break;
@@ -83,7 +87,7 @@ public class ClusterConsoleControlRunner {
                     case 'e':{
                         response=api.exit();
                         print("server_Response:"+response);
-                        return;
+                        System.exit(0);
                     }
                 }
                 print("server_Response:"+response);
