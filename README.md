@@ -22,7 +22,7 @@ firstly,then you will find this is so easy to use.
 ## how?
 
 #### There is a small demo for testing the memkit cluster. 
-+++><https://github.com/pandening/MemKit-Cluster/blob/master/MemKitClusterManager/src/net/hujian/memkit/clusterTestDemo/ClusterConsoleControlRunner.java>
+<https://github.com/pandening/MemKit-Cluster/blob/master/MemKitClusterManager/src/net/hujian/memkit/clusterTestDemo/ClusterConsoleControlRunner.java>
 #### hot to set up the demo?
 ##### 1.edit the config file,the follow codes is a template configure.
 ```
@@ -61,9 +61,9 @@ $fn:./conf/dump.log
 ##### 3.start the cluster manager
 ##### 4.check the run result.
 ##### if you look the result like this,you are succeed  
-######### memkit manager
+###### memkit manager
 ![iamge](https://github.com/pandening/images/blob/master/memkitDemoRun.png)
-######## memkit 
+###### memkit 
 ![image](https://github.com/pandening/images/blob/master/memkitserver.png)
 
 ## Developer?
