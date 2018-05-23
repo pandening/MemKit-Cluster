@@ -1,7 +1,7 @@
-MemKit-Cluster(another LTS project)
-==================================
-What?
-----------------------------------
+#MemKit-Cluster(another LTS project)
+
+##What?
+
 ```
 MemKit is a key-value store tool,and the Memkit is local,but this project will work on    
 cluster,the topology is star-type.the center is the manager.the edge is the memkit node.  
@@ -19,8 +19,8 @@ firstly,then you will find this is so easy to use.
 ```
 
 
-how?
-----------------------------------
+##how?
+
 ####There is a small demo for testing the memkit cluster. 
 +++><https://github.com/pandening/MemKit-Cluster/blob/master/MemKitClusterManager/src/net/hujian/memkit/clusterTestDemo/ClusterConsoleControlRunner.java>
 ####hot to set up the demo?
@@ -66,12 +66,12 @@ $fn:./conf/dump.log
 ########memkit 
 ![image](https://github.com/pandening/images/blob/master/memkitserver.png)
 
-Developer?
-----------------------------------
+##Developer?
+
 hujian:<1425124481@qq.com>
 
-update Information
----------------------------------
+##update Information
+
 ```
 1.2016/9/9      set up the project with total code 4026 lines.    
 2.2016/9/10     re-organize the files,and set up the auto-dump engine,you can rebuild the memkit now~ 
@@ -95,8 +95,8 @@ update Information
                 (3). codes:6265 lines
 ```
 
-License?
----------------------------------
+##License?
+
 ```
 Copyright 2016 HuJian
 
