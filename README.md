@@ -1,6 +1,6 @@
-#MemKit-Cluster(another LTS project)
+# MemKit-Cluster(another LTS project)
 
-##What?
+## What?
 
 ```
 MemKit is a key-value store tool,and the Memkit is local,but this project will work on    
@@ -19,12 +19,12 @@ firstly,then you will find this is so easy to use.
 ```
 
 
-##how?
+## how?
 
-####There is a small demo for testing the memkit cluster. 
+#### There is a small demo for testing the memkit cluster. 
 +++><https://github.com/pandening/MemKit-Cluster/blob/master/MemKitClusterManager/src/net/hujian/memkit/clusterTestDemo/ClusterConsoleControlRunner.java>
-####hot to set up the demo?
-#####1.edit the config file,the follow codes is a template configure.
+#### hot to set up the demo?
+##### 1.edit the config file,the follow codes is a template configure.
 ```
 #This is the config file of this memcached,and the code start with '#' means
 #this is a comment,the program will skip these code,and you can just use the
@@ -57,20 +57,20 @@ $DT:60
 #13.dump file name
 $fn:./conf/dump.log
 ```
-#####2.start the memkit.
-#####3.start the cluster manager
-#####4.check the run result.
-#####if you look the result like this,you are succeed  
-#########memkit manager
+##### 2.start the memkit.
+##### 3.start the cluster manager
+##### 4.check the run result.
+##### if you look the result like this,you are succeed  
+######### memkit manager
 ![iamge](https://github.com/pandening/images/blob/master/memkitDemoRun.png)
-########memkit 
+######## memkit 
 ![image](https://github.com/pandening/images/blob/master/memkitserver.png)
 
-##Developer?
+## Developer?
 
 hujian:<1425124481@qq.com>
 
-##update Information
+## update Information
 
 ```
 1.2016/9/9      set up the project with total code 4026 lines.    
@@ -95,7 +95,7 @@ hujian:<1425124481@qq.com>
                 (3). codes:6265 lines
 ```
 
-##License?
+## License?
 
 ```
 Copyright 2016 HuJian
